@@ -16,17 +16,11 @@ const JOINED_TRIPS = [
   { id: 10, title: "Jungfraujoch Expedition", location: "Jungfraujoch, CH", date: "May 8", participants: "4/8", tags: ["Adventure", "Nature"], image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" },
 ];
 
-const FAVORITE_TRIPS = [
-  { id: 5, title: "Swiss Alps Trekking", location: "Grindelwald, CH", date: "Apr 22", participants: "6/12", tags: ["Hiking", "Nature"], image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
-  { id: 2, title: "Zermatt Mountain View", location: "Zermatt, CH", date: "Apr 15", participants: "3/8", tags: ["Hiking", "Nature"], image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" },
-  { id: 13, title: "Lauterbrunnen Valley", location: "Lauterbrunnen, CH", date: "May 18", participants: "3/8", tags: ["Hiking", "Nature"], image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80" },
-];
-
 export function HomeScreen() {
   const navigate = useNavigate();
-  const [tab, setTab] = useState<"created" | "joined" | "favorites">("created");
+  const [tab, setTab] = useState<"created" | "joined">("created");
 
-  const displayTrips = tab === "created" ? CREATED_TRIPS : tab === "joined" ? JOINED_TRIPS : FAVORITE_TRIPS;
+  const displayTrips = tab === "created" ? CREATED_TRIPS : JOINED_TRIPS;
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -34,9 +28,9 @@ export function HomeScreen() {
         <h2>My Trips</h2>
       </div>
 
-      {/* Tabs */}
+      {/* Tabs - only Created and Joined */}
       <div className="px-4 flex gap-2 mb-3">
-        {(["created", "joined", "favorites"] as const).map((t) => (
+        {(["created", "joined"] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
