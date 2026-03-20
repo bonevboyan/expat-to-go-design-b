@@ -20,27 +20,28 @@ export function CreateTripScreen() {
 
       <div className="px-4 space-y-3 pb-20">
         {/* Photo placeholder */}
-        <div className="w-full h-28 bg-[#DDDDDD] border-2 border-dashed border-[#BBBBBB] rounded-md flex items-center justify-center text-sm text-muted-foreground">
-          + Add cover photo
+        <div className="w-full h-32 bg-[#FDF8F0] border-2 border-dashed border-[#FF6B35] rounded-xl flex flex-col items-center justify-center text-sm text-[#FF6B35] cursor-pointer hover:bg-[#FFF5E6] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="mb-2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          <span>Add cover photo</span>
         </div>
 
-        <input className="w-full border border-border rounded-md px-3 py-2.5 bg-white" placeholder="Trip Name" />
-        <input className="w-full border border-border rounded-md px-3 py-2.5 bg-white" placeholder="Destination" />
+        <input className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white" placeholder="Trip Name" />
+        <input className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white" placeholder="Destination" />
 
         <div className="grid grid-cols-2 gap-2">
-          <input className="border border-border rounded-md px-3 py-2.5 bg-white text-sm" type="date" />
-          <input className="border border-border rounded-md px-3 py-2.5 bg-white text-sm" type="date" />
+          <input className="border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white text-sm" type="date" />
+          <input className="border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white text-sm" type="date" />
         </div>
 
-        <input className="w-full border border-border rounded-md px-3 py-2.5 bg-white" placeholder="Meeting Point (Maps link)" />
+        <input className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white" placeholder="Meeting Point (Maps link)" />
 
         <div className="grid grid-cols-2 gap-2">
-          <input className="border border-border rounded-md px-3 py-2.5 bg-white text-sm" placeholder="Min participants" type="number" />
-          <input className="border border-border rounded-md px-3 py-2.5 bg-white text-sm" placeholder="Max participants" type="number" />
+          <input className="border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white text-sm" placeholder="Min participants" type="number" />
+          <input className="border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white text-sm" placeholder="Max participants" type="number" />
         </div>
 
-        <textarea className="w-full border border-border rounded-md px-3 py-2.5 bg-white min-h-[80px] resize-none text-sm" placeholder="Description..." />
-        <textarea className="w-full border border-border rounded-md px-3 py-2.5 bg-white min-h-[60px] resize-none text-sm" placeholder="Itinerary..." />
+        <textarea className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white min-h-[80px] resize-none text-sm" placeholder="Description..." />
+        <textarea className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white min-h-[60px] resize-none text-sm" placeholder="Itinerary..." />
 
         {/* Tags */}
         <div>
@@ -50,8 +51,8 @@ export function CreateTripScreen() {
               <button
                 key={tag}
                 onClick={() => toggleTag(tag)}
-                className={`px-2 py-1 rounded text-xs border ${
-                  selectedTags.includes(tag) ? "bg-primary text-white border-primary" : "border-border bg-white"
+                className={`px-2 py-1 rounded-lg text-xs border ${
+                  selectedTags.includes(tag) ? "bg-primary text-white border-transparent" : "border-black/[0.06] bg-white"
                 }`}
               >
                 {tag}
@@ -68,8 +69,8 @@ export function CreateTripScreen() {
               <button
                 key={v}
                 onClick={() => setVisibility(v)}
-                className={`flex-1 py-2 rounded-md text-sm border capitalize ${
-                  visibility === v ? "bg-primary text-white border-primary" : "border-border bg-white"
+                className={`flex-1 py-2 rounded-xl text-sm border capitalize ${
+                  visibility === v ? "bg-primary text-white border-transparent" : "border-black/[0.06] bg-white"
                 }`}
               >
                 {v}
@@ -78,14 +79,14 @@ export function CreateTripScreen() {
           </div>
         </div>
 
-        <input className="w-full border border-border rounded-md px-3 py-2.5 bg-white" placeholder="Budget estimate (e.g. €25-40)" />
-        <input className="w-full border border-border rounded-md px-3 py-2.5 bg-white" placeholder="Transport method" />
+        <input className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white" placeholder="Budget estimate (e.g. €25-40)" />
+        <input className="w-full border border-black/[0.06] rounded-xl px-3 py-2.5 bg-white" placeholder="Transport method" />
       </div>
 
       {/* Bottom action button */}
-      <div className="fixed bottom-14 left-0 right-0 px-4 py-3 bg-background border-t border-border">
+      <div className="fixed bottom-14 left-0 right-0 px-4 py-3 bg-background border-t border-black/[0.06]">
         <div className="max-w-md mx-auto">
-          <button onClick={() => navigate("/")} className="w-full bg-primary text-white py-3 rounded-md text-sm">
+          <button onClick={() => navigate("/")} className="w-full bg-primary text-white py-3 rounded-xl text-sm">
             Create Trip
           </button>
         </div>

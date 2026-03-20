@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
 
 const CHATS = [
-  { id: 1, tripName: "Alpine Ridge Hike", lastMessage: "See you at the station!", time: "2h", unread: 2 },
-  { id: 2, tripName: "Coastal Sunset Walk", lastMessage: "Should we bring snacks?", time: "5h", unread: 0 },
+  { id: 1, tripName: "Alpine Ridge Hike", lastMessage: "See you at the station!", time: "2h", unread: 1 },
+  { id: 2, tripName: "Coastal Sunset Walk", lastMessage: "Perfect! See you at Benagil Beach at 4pm.", time: "5h", unread: 0 },
 ];
 
 export function ChatListScreen() {

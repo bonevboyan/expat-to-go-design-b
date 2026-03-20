@@ -63,8 +63,9 @@ export function EditTripScreen() {
 
       <div className="px-4 space-y-3 pb-20">
         {/* Photo placeholder */}
-        <div className="w-full h-28 bg-[#DDDDDD] border-2 border-dashed border-[#BBBBBB] rounded-md flex items-center justify-center text-sm text-muted-foreground">
-          Change cover photo
+        <div className="w-full h-32 bg-[#FDF8F0] border-2 border-dashed border-[#FF6B35] rounded-xl flex flex-col items-center justify-center text-sm text-[#FF6B35] cursor-pointer hover:bg-[#FFF5E6] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="mb-2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          <span>Change cover photo</span>
         </div>
 
         <input 
