@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { ArrowLeft, Share2, Flag, Users, Heart, ArrowUpRight } from "lucide-react";
+import { toast } from "sonner";
 
 const TRIP_DATA: Record<string, any> = {
   "1": {
@@ -147,6 +148,14 @@ const TRIP_DATA: Record<string, any> = {
     meetingPoint: "Innsbruck Hauptbahnhof", budget: "€30-50", transport: "Bus",
     image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80",
   },
+  "19": {
+    title: "Zurich Zoo Family Day", location: "Zurich, CH", date: "Jun 8, 2026",
+    participants: 4, max: 20, organizer: "Maria S.", tags: ["Family", "Culture"],
+    description: "A perfect family day at Zurich Zoo! See exotic animals, enjoy interactive exhibits, and have a picnic lunch. Great for kids of all ages.",
+    itinerary: ["09:00 — Meet at zoo entrance", "09:30 — Elephant house tour", "11:00 — Penguin feeding show", "12:30 — Picnic lunch", "14:00 — Aquarium visit", "16:00 — Playground time"],
+    meetingPoint: "Zurich Zoo Main Entrance", budget: "€30-45", transport: "Train",
+    image: "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?w=800&q=80",
+  },
 };
 
 // Current user (in a real app, this would come from auth context)
@@ -161,6 +170,16 @@ export function TripDetailScreen() {
   
   // Check if current user is the organizer
   const isOrganizer = trip.organizer === CURRENT_USER;
+
+  const handleShare = async () => {
+    const shareUrl = `${window.location.origin}/trip/${id}`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success("Link copied to clipboard!");
+    } catch (err) {
+      toast.error("Failed to copy link");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background pb-24">
@@ -183,7 +202,10 @@ export function TripDetailScreen() {
           >
             <Heart className={`w-4 h-4 ${isFavorite ? "fill-current" : ""}`} />
           </button>
-          <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs">
+          <button 
+            onClick={handleShare}
+            className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs"
+          >
             <Share2 className="w-4 h-4 text-black" />
           </button>
           <button 
