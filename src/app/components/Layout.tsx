@@ -28,14 +28,11 @@ export function Layout() {
     pathname.startsWith("/user/") ||
     pathname === "/edit-profile";
 
-  // Map screen handles its own scrolling internally
-  const isMapPage = pathname === "/map";
-
   return (
     <div className="max-w-md mx-auto h-screen flex flex-col bg-background">
-      <div 
+      <div
         ref={outletRef}
-        className={`flex-1 ${isMapPage ? 'overflow-hidden' : 'overflow-y-auto'}`}
+        className="flex-1 overflow-y-auto"
         key={pathname} // Force remount on route change to reset scroll
       >
         <Outlet />
